@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Estacionamento</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Controle de Estacionamento</h1>
+        
+        <div id="menu">
+            <button onclick="showCadastro()">Cadastro de Reserva</button>
+            <button onclick="showListar()">Listar Vagas</button>
+            <button onclick="showDisponiveis()">Vagas Disponíveis</button>
+        </div>
+
+        <div id="cadastro" class="form-container">
+            <h2>Cadastro de Reserva</h2>
+            <form id="reservaForm">
+                <label for="placa">Placa do Veículo:</label>
+                <input type="text" id="placa" required>
+                
+                <label for="proprietario">Nome do Proprietário:</label>
+                <input type="text" id="proprietario" required>
+                
+                <label for="apartamento">Número do Apartamento:</label>
+                <input type="text" id="apartamento" required>
+                
+                <label for="bloco">Bloco do Apartamento:</label>
+                <input type="text" id="bloco" required>
+                
+                <label for="modelo">Modelo do Veículo:</label>
+                <input type="text" id="modelo" required>
+                
+                <label for="cor">Cor do Veículo:</label>
+                <input type="text" id="cor" required>
+                
+                <label for="vaga">Número da Vaga:</label>
+                <select id="vaga" required>
+                    <option value="" disabled selected>Selecione uma vaga</option>
+                    <script>
+                        for (let i = 1; i <= 30; i++) {
+                            document.write(`<option value="${i}">${i}</option>`);
+                        }
+                    </script>
+                </select>
+                
+                <button type="submit">Salvar</button>
+            </form>
+        </div>
+
+        <div id="listar" class="list-container" style="display: none;">
+            <h2>Vagas Cadastradas</h2>
+            <ul id="listaVagas"></ul>
+        </div>
+
+        <div id="disponiveis" class="list-container" style="display: none;">
+            <h2>Vagas Disponíveis</h2>
+            <ul id="vagasDisponiveis"></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
